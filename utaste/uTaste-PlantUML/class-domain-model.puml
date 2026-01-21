@@ -1,0 +1,45 @@
+@startuml
+title Class Diagram — Domain Model
+
+class User {
+  +id: long
+  +username: String
+  +passwordHash: String
+  +role: Role
+}
+
+enum Role {
+  ADMIN
+  CHEF
+  WAITER
+}
+
+class Recipe {
+  +id: long
+  +name: String
+  +imageUri: String
+}
+
+class Ingredient {
+  +id: long
+  +recipeId: long
+  +name: String
+  +quantityPercent: float
+  +kcal_100g: float
+  +carbs_100g: float
+  +protein_100g: float
+  +fat_100g: float
+}
+
+class Sale {
+  +id: long
+  +recipeId: long
+  +rating: int   // 0..10
+  +appreciation: String
+  +timestamp: Date
+}
+
+Recipe "1" -- "0..*" Ingredient : contains
+Recipe "1" -- "0..*" Sale : has
+User "1" -- "0..*" Sale : records
+@enduml

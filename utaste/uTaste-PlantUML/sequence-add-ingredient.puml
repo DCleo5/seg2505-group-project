@@ -1,0 +1,25 @@
+@startuml
+title Sequence — Add Ingredient via QR + OpenFoodFacts
+
+actor Chef
+participant "App (UI)" as UI
+participant "QR Scanner" as QR
+participant "REST Client" as REST
+participant "OpenFoodFacts API" as OFF
+database "SQLite (DAO)" as DB
+
+Chef -> UI: Open 'Add Ingredient'
+UI -> QR: Start scan
+QR --> UI: EAN (barcode)
+
+UI -> REST: GET /product/{EAN}.json
+REST -> OFF: HTTP request
+OFF --> REST: 200 OK (JSON nutriments)
+REST --> UI: Parsed nutrition (≥5 fields)
+
+UI -> UI: compute per-100g → apply quantity %
+UI -> DB: INSERT Ingredient(name, quantity%, nutriments)
+DB --> UI: OK
+
+UI --> Chef: Ingredient added + nutrition listed
+@enduml

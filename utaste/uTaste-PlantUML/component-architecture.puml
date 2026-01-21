@@ -1,0 +1,26 @@
+@startuml
+title Component Diagram — Android Architecture
+
+package "Android App (Java)" {
+  [UI (Activities/Fragments)] --> [ViewModel]
+  [ViewModel] --> [Repository]
+  [Repository] --> [SQLite (Room/DAO)]
+  [Repository] --> [REST Client]
+  [UI (Activities/Fragments)] ..> [QR Scanner] : intents/callback
+
+  [REST Client] --> (OpenFoodFacts API)
+}
+
+note right of [SQLite (Room/DAO)]
+Tables:
+- users
+- recipes
+- ingredients
+- sales
+end note
+
+note bottom of [REST Client]
+- JSON parsing (≥5 nutrition fields)
+- Error handling & timeouts
+end note
+@enduml

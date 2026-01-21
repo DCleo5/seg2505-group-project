@@ -1,0 +1,48 @@
+@startuml
+title Use Case — uTaste (Administrator, Chef, Waiter)
+
+left to right direction
+actor Administrator as Admin
+actor Chef
+actor Waiter
+
+rectangle "uTaste App" {
+  usecase "Login" as UC_Login
+  usecase "Change password" as UC_Pwd
+  usecase "Manage Waiters\n(create/delete)" as UC_WaiterMgmt
+  usecase "Reset database" as UC_Reset
+
+  usecase "Create/Update/Delete Recipe" as UC_RecipeCRUD
+  usecase "Add Ingredient" as UC_AddIngr
+  usecase "Scan Ingredient via QR" as UC_QR
+  usecase "Fetch Nutrition from\nOpenFoodFacts (REST/JSON)" as UC_OFF
+  usecase "View Ingredient Nutrition List" as UC_IngrNutri
+  usecase "Compute Recipe\nNutrition Balance" as UC_Balance
+
+  usecase "List Recipes" as UC_List
+  usecase "Record Sale\n(rating 0–10 + appreciation)" as UC_Sale
+  usecase "Reports: Sales/Recipe\n+ Average Rating" as UC_Reports
+}
+
+Admin --> UC_Login
+Admin --> UC_Pwd
+Admin --> UC_WaiterMgmt
+Admin --> UC_Reset
+
+Chef --> UC_Login
+Chef --> UC_RecipeCRUD
+Chef --> UC_AddIngr
+Chef --> UC_QR
+Chef --> UC_OFF
+Chef --> UC_IngrNutri
+Chef --> UC_Balance
+
+Waiter --> UC_Login
+Waiter --> UC_List
+Waiter --> UC_Sale
+Waiter --> UC_Reports
+
+UC_QR --> UC_AddIngr
+UC_OFF --> UC_AddIngr
+UC_Balance <-- UC_AddIngr
+@enduml

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="8dp">
+
+    <!-- Ligne avec : Nom ingrédient | % | bouton Scan -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/ingredientNameInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Ingredient name" />
+
+        <EditText
+            android:id="@+id/ingredientPercentInput"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="%"
+            android:layout_marginStart="8dp" />
+
+        <Button
+            android:id="@+id/ingredientScanButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan" />
+    </LinearLayout>
+
+    <!-- Affichage du code-barres / QR scanné -->
+    <TextView
+        android:id="@+id/ingredientBarcodeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Code: -"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp" />
+
+</LinearLayout>

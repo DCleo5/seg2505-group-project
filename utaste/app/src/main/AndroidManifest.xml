@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.utaste">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/uottawa_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.AdminActivity" />
+        <activity android:name=".activity.ChefRecipesActivity" />
+        <activity android:name=".activity.AddRecipeActivity" />
+        <activity android:name=".activity.RecipeDetailActivity" />
+        <activity android:name=".activity.WaiterActivity" />
+        <activity android:name=".activity.SellerRecipesActivity" />
+        <activity android:name=".activity.RecordSaleActivity" />
+        <activity android:name=".activity.SalesReportActivity" />
+        <activity android:name=".activity.RecipeCommentsActivity" />
+        <activity android:name=".activity.UserManagementActivity" />
+
+        <!-- QR Scanner - FIXED with tools:replace -->
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            tools:replace="android:screenOrientation" />
+
+    </application>
+</manifest>

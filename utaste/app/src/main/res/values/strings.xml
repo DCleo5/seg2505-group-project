@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">uTaste</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="add_new_recipe">Add New Recipe</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="recipe_image">Recipe Image</string>
+    <string name="login_title">uTaste Login</string>
+    <string name="app_logo">uOttawa Logo</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="percentage_hint">Percentage (%)</string>
+    <string name="scan_qr_button">Scan QR Code to Add Ingredient</string>
+    <string name="calculate_nutrition">Calculate Nutritional Info</string>
+    <string name="no_nutritional_info">No nutritional information calculated yet.</string>
+</resources>
